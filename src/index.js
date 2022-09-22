@@ -12,11 +12,13 @@ const DEBOUNCE_DELAY = 300;
 refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput() {
+
   // Если пользователь полностью очищает поле поиска, 
   // то HTTP-запрос не выполняется, а разметка списка 
   // стран или информации о стране пропадает.
   refs.countryInfoEl.innerHTML = '';
   refs.countryList.innerHTML = '';
+
   // Выполни санитизацию введенной строки методом trim()
   const searchQuery = refs.input.value.trim();
   console.log('це onInput', searchQuery);
@@ -27,6 +29,7 @@ function onInput() {
 }
 
   function renderCountryCard(data) {
+    
     // Если в ответе бэкенд вернул больше чем 10 стран, 
     // в интерфейсе пояляется уведомление о том, 
     // что имя должно быть более специфичным
